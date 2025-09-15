@@ -1,0 +1,29 @@
+
+# Site settings
+title: 压缩感知学术进展
+description: 致力于介绍压缩感知领域的核心理论、算法、应用及最新研究进展。
+baseurl: "" # 如果你的仓库是 [username].github.io，这里留空。
+url: "" # 你的域名，如果使用 GitHub Pages 默认域名，这里留空。
+timezone: Asia/Shanghai
+
+# Build settings
+markdown: kramdown
+theme: minima # 使用 Jekyll 的默认主题，你可以替换为其他主题，如 academicpages
+
+# Exclude from processing.
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Custom pages and collections
+collections:
+  pages:
+    output: true
+    permalink: /:name/
