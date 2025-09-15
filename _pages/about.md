@@ -1,4 +1,9 @@
-layout: page title: 关于我们 permalink: /about/
+---
+layout: page
+title: 关于我们
+description: 了解我们的使命、愿景和致力于推动压缩感知知识普及的团队
+permalink: /about/
+---
 关于本网站
 本网站致力于构建一个全面、易懂且持续更新的**压缩感知（Compressed Sensing, CS）**知识库。我们的目标是为信号处理、应用数学、计算机科学等领域的学生、研究者和技术爱好者提供一个高质量的在线学习平台。
 

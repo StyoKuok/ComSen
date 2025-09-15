@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>{% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/favicon.svg' | relative_url }}">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    
+    <!-- SEO -->
+    {% seo %}
+</head>
+<body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="{{ '/' | relative_url }}">
+                    <i class="fas fa-wave-square"></i>
+                    <span>{{ site.title }}</span>
+                </a>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="{{ '/' | relative_url }}" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>首页</span>
+                </a>
+                <a href="{{ '/what-is-cs/' | relative_url }}" class="nav-link">
+                    <i class="fas fa-question-circle"></i>
+                    <span>什么是CS</span>
+                </a>
+                <a href="{{ '/core-theory/' | relative_url }}" class="nav-link">
+                    <i class="fas fa-brain"></i>
+                    <span>核心理论</span>
+                </a>
+                <a href="{{ '/algorithms/' | relative_url }}" class="nav-link">
+                    <i class="fas fa-code"></i>
+                    <span>算法</span>
+                </a>
+                <a href="{{ '/applications/' | relative_url }}" class="nav-link">
+                    <i class="fas fa-rocket"></i>
+                    <span>应用</span>
+                </a>
+                <a href="{{ '/learning-resources/' | relative_url }}" class="nav-link">
+                    <i class="fas fa-book"></i>
+                    <span>学习资源</span>
+                </a>
+                <a href="{{ '/about/' | relative_url }}" class="nav-link">
+                    <i class="fas fa-info-circle"></i>
+                    <span>关于</span>
+                </a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        {{ content }}
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>压缩感知学术进展</h3>
+                    <p>{{ site.description }}</p>
+                    <div class="social-links">
+                        <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:{{ site.email }}" target="_blank" rel="noopener">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="{{ '/feed.xml' | relative_url }}" target="_blank" rel="noopener">
+                            <i class="fas fa-rss"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="{{ '/what-is-cs/' | relative_url }}">什么是压缩感知</a></li>
+                        <li><a href="{{ '/core-theory/' | relative_url }}">核心理论</a></li>
+                        <li><a href="{{ '/algorithms/' | relative_url }}">算法详解</a></li>
+                        <li><a href="{{ '/applications/' | relative_url }}">实际应用</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>最新更新</h4>
+                    <ul>
+                        {% for post in site.posts limit:3 %}
+                        <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. 基于 Jekyll 构建，托管于 GitHub Pages。</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

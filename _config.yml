@@ -1,4 +1,3 @@
-
 # Site settings
 title: 压缩感知学术进展
 description: 致力于介绍压缩感知领域的核心理论、算法、应用及最新研究进展。
@@ -8,7 +7,19 @@ timezone: Asia/Shanghai
 
 # Build settings
 markdown: kramdown
-theme: minima # 使用 Jekyll 的默认主题，你可以替换为其他主题，如 academicpages
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# MathJax support
+mathjax: true
+
+# Custom variables
+author: 压缩感知研究团队
+email: contact@compressedsensing.org
+github_username: your-username
 
 # Exclude from processing.
 exclude:
@@ -21,9 +32,30 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - README.md
+  - LICENSE
+  - .github/
 
 # Custom pages and collections
 collections:
   pages:
     output: true
     permalink: /:name/
+
+# Pagination
+paginate: 5
+paginate_path: "/page:num/"
+
+# Sass
+sass:
+  style: compressed
+  sass_dir: _sass
+
+# Compression
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  startings: [html, head, body]
+  blanklines: false
+  profile: false

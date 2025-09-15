@@ -1,0 +1,52 @@
+---
+layout: default
+---
+
+<article class="post-content">
+    <header class="post-header">
+        <div class="post-meta">
+            <time datetime="{{ page.date | date_to_xmlschema }}">
+                {{ page.date | date: "%Y年%m月%d日" }}
+            </time>
+            {% if page.author %}
+            <span class="post-author">{{ page.author }}</span>
+            {% endif %}
+            {% if page.categories %}
+            <div class="post-categories">
+                {% for category in page.categories %}
+                <span class="category-tag">{{ category }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        <h1 class="post-title">{{ page.title }}</h1>
+    </header>
+    
+    <div class="post-body">
+        {{ content }}
+    </div>
+    
+    {% if page.previous or page.next %}
+    <nav class="post-navigation">
+        {% if page.previous %}
+        <a href="{{ page.previous.url | relative_url }}" class="nav-previous">
+            <i class="fas fa-arrow-left"></i>
+            <div class="nav-content">
+                <span class="nav-label">上一篇</span>
+                <span class="nav-title">{{ page.previous.title }}</span>
+            </div>
+        </a>
+        {% endif %}
+        
+        {% if page.next %}
+        <a href="{{ page.next.url | relative_url }}" class="nav-next">
+            <div class="nav-content">
+                <span class="nav-label">下一篇</span>
+                <span class="nav-title">{{ page.next.title }}</span>
+            </div>
+            <i class="fas fa-arrow-right"></i>
+        </a>
+        {% endif %}
+    </nav>
+    {% endif %}
+</article>

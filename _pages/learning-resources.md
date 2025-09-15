@@ -1,4 +1,9 @@
-layout: page title: 学习资源 permalink: /learning-resources/
+---
+layout: page
+title: 学习资源
+description: 精选的教程、论文、代码和工具，助力您的压缩感知学习和研究
+permalink: /learning-resources/
+---
 学习资源与参考资料
 为了帮助你更系统地学习和研究压缩感知，我们整理了以下高质量的学习资源，涵盖了从入门到进阶的各个层面。
 

@@ -1,4 +1,9 @@
-layout: page title: 什么是压缩感知？ permalink: /what-is-cs/
+---
+layout: page
+title: 什么是压缩感知？
+description: 深入了解压缩感知的基本概念、核心原理和数学基础
+permalink: /what-is-cs/
+---
 压缩感知（Compressed Sensing, CS）
 压缩感知是一种在信号处理、图像处理等领域中颠覆传统奈奎斯特-香农采样定理的新理论。它的核心思想是，如果一个信号是可压缩的或者在某个基下是稀疏的，那么我们就可以用远低于奈奎斯特定理要求的采样率对其进行不完全采样，并利用优化算法从这些少量测量值中精确重建出原始信号。
 
